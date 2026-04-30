@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Forever 🌍❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: lightcoral;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+h1,h2 {
+  font-family: 'Dancing Script', cursive;
+}
+.slideshow {
+  position: relative;
+  width: 280px;
+  height: 320px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #000;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;   /* 👈 MAIN FIX */
+  object-position: center;
+
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+.intro-text {
+  font-size: 45px;
+  font-family: 'Poppins', sans-serif;
+
+  background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffff);
+  background-size: 200%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+#thankyou {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle, #ffdde1, #ee9ca7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#heart-container-2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.heart2 {
+  position: absolute;
+  color: pink;
+  font-size: 16px;
+  animation: floatUp2 5s linear infinite;
+}
+
+@keyframes floatUp2 {
+  0% {
+    transform: translateY(100vh) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.4);
+    opacity: 0;
+  }
+}
+
+.thank-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 55px;
+
+  background: linear-gradient(90deg, #ff4e50, #fc913a, #ff00cc);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientMove 3s linear infinite;
+}
+.image-box {
+  width: 100%;
+  height: calc(100vh - 140px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+/* Sections */
+.section {
+  display: none;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: fade 1s;
+}
+.gallery img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 8px;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-box {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 20px pink;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.popup-box button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  color: black;
+}
+.memory-img {
+  width: 50px;
+  border-radius: 20px;
+  margin: 10px;
+  box-shadow: 0 0 15px rgba(255, 100, 150, 0.5);
+}
+#heart-container {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  color: pink;
+  font-size: 18px;
+  animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.5);
+    opacity: 0;
+  }
+}
+.intro-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+  letter-spacing: 2px;
+  color: #ff4e50;
+  text-shadow: 0 0 10px rgba(255, 100, 150, 0.8);
+}
+
+/* Intro */
+#intro {
+  display: flex;
+  font-size: 35px;
+  background: linear-gradient(45deg,#ff4e50,#fc913a);
+}
+
+/* Button */
+button {
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: none;
+  background: #ff4e50;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+button:hover { transform: scale(1.1); }
+
+/* Inputs */
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+}
+
+/* Typing */
+#typing {
+  border-right: 2px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Final */
+#final {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffdde1);
+}
+
+/* Cake */
+.cake {
+  font-size: 80px;
+  animation: bounce 1s infinite;
+}
+.glow-text {
+  font-size: 20px;
+  line-height: 1.6;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px pink; }
+  to { text-shadow: 0 0 25px red; }
+}
+
+/* Animations */
+@keyframes fade {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes glow {
+  from {text-shadow: 0 0 10px pink;}
+  to {text-shadow: 0 0 30px red;}
+}
+
+@keyframes bounce {
+  0%,100%{transform: translateY(0);}
+  50%{transform: translateY(-20px);}
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- INTRO -->
+<div id="intro" class="section" style="display:flex;">
+  <h1 class="intro-text">Hello Ritu </h1>
+  
+</div>
+
+<!-- LOGIN -->
+<div id="login" class="section">
+  <h2>💖 A Small Test For You 💖</h2>
+
+  <p>Enter your Birthday 🎂</p>
+  <input type="date" id="dob">
+
+  <p>When did we fall in love? 💞</p>
+  <input type="date" id="loveDate">
+
+  <button onclick="checkDates()">Unlock ❤️</button>
+</div>
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <p id="popup-text"></p>
+    <button onclick="closePopup()">OK ❤️</button>
+  </div>
+</div>
+
+<!-- NOTE -->
+<div id="note" class="section">
+  <h2>💌 My Love</h2>
+  <p class="glow text"> You are very important person in my life since May❤️
+  <br />Your Smile is My Happiness Bche💕
+  <br />I love You Forever🥰</p>
+  <button onclick="next('memory')">Next ➡️</button>
+</div>
+
+<!-- MEMORY -->
+<div id="memory" class="section">
+  <h2>💞 Our Memories</h2>
+
+  <div class="slideshow">
+    <img src="/25april/IMG_1240.jpg" class="slide active">
+    <img src="/25april/IMG_1250.jpg" class="slide">
+    <img src="/25april/Videoshot_20250724_083451.jpg" class="slide">
+    <img src="/25april/Snapchat-328565704.jpg" class="slide">
+    <img src="/25april/Snapchat-1787149977.jpg" class="slide">
+    <img src="/25april/Snapchat-1621710634.jpg" class="slide">
+    <img src="/25april/IMG_3975.jpg" class="slide" >
+    <img src="/25april/IMG_3975.jpg" class="slide">
+    <img src="/25april/Gemini_Generated_Image_kxq8eekxq8eekxq8.png" class="slide">
+  </div>
+
+  <button onclick="next('gallery')">Next ➡️</button>
+</div>
+
+<!-- GALLERY -->
+<div id="gallery" class="section" style="padding:0;">
+
+  <h2 style="margin:10px 0;">❤️ Love Gallery</h2>
+
+  <div class="image-box">
+    <img src="/25april/Screenshot_20260430_181242.jpg">
+  </div>
+
+  <button onclick="next('final')" style="margin-top:10px;">
+    Final 🎁
+  </button>
+
+</div>
+
+<!-- FINAL -->
+<div id="final" class="section">
+  <div id="heart-container"></div>
+
+  <!-- ❤️ Tumhara banner -->
+  <img src="/25april/pic31.jpg" 
+       style="width:300px; border-radius:15px;">
+       <button onclick="next('thankyou')">Thank You ❤️</button>
+
+</div>
+
+  <h1 style="font-size:60px; animation: glow 2s infinite alternate;">
+    I Love You ❤️
+  </h1>
+</div>
+
+
+<div id="thankyou" class="section">
+
+  <!-- hearts layer -->
+  <div id="heart-container-2"></div>
+
+  <h1 class="thank-text">Thank You Bache ❤️</h1>
+
+</div>
+<script>
+function checkDates(){
+  let dob=document.getElementById("dob").value;
+  let love=document.getElementById("loveDate").value;
+
+  if(dob==="2001-04-25" && love==="2025-07-29"){
+  next("note");
+} else {
+  showPopup("Aree jaan 😅 galat date dali hai!");
+}
+{ // 👉 MUSIC PLAY yaha hoga
+    let m=document.getElementById("music");
+    m.play();
+
+    next("note");
+    type();
+
+  }
+}
+</script>
+<script>
+let slideIndex = 0;
+
+function startSlideshow() {
+  let slides = document.querySelectorAll(".slide");
+
+  if (slides.length === 0) return;
+
+  slides.forEach(s => s.classList.remove("active"));
+
+  slideIndex++;
+  if (slideIndex >= slides.length) slideIndex = 0;
+
+  slides[slideIndex].classList.add("active");
+}
+
+// 👉 हर 2.5 sec बाद run
+setInterval(startSlideshow, 2500);
+</script>
+<script>
+
+// intro
+setTimeout(()=>show("login"),2000);
+
+// typing
+let text="Tum meri life ka sabse beautiful part ho ❤️ I love you forever 💕";
+let i=0;
+function type(){
+  if(i<text.length){
+    document.getElementById("typing").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(type,50);
+  }
+}
+
+// music
+function toggleMusic(){
+  let m=document.getElementById("music");
+  m.paused?m.play():m.pause();
+}
+
+// check dates
+function checkDates(){
+  let dob=document.getElementById("dob").value;
+  let love=document.getElementById("loveDate").value;
+
+  if(dob==="2001-04-25" && love==="2025-07-29"){
+    next("note");
+    type();
+  } else {
+    showPopup("Aree jaan 😅 galat hai...");
+  }
+}
+
+// navigation
+function next(id){ show(id); }
+
+function show(id){
+  document.querySelectorAll(".section").forEach(s=>s.style.display="none");
+  document.getElementById(id).style.display="flex";
+
+  if(id==="final") fireworks();
+}
+
+// fireworks
+function fireworks(){
+  for(let i=0;i<20;i++){
+    let d=document.createElement("div");
+    d.innerText="✨";
+    d.style.position="absolute";
+    d.style.left="50%";
+    d.style.top="50%";
+    document.body.appendChild(d);
+
+    let x=(Math.random()-0.5)*500;
+    let y=(Math.random()-0.5)*500;
+
+    d.animate([
+      {transform:"translate(0,0)",opacity:1},
+      {transform:`translate(${x}px,${y}px)`,opacity:0}
+    ],{duration:1000});
+
+    setTimeout(()=>d.remove(),1000);
+  }
+}
+
+</script>
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerText = "❤️";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+  document.getElementById("heart-container").appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}
+
+// continuously hearts
+setInterval(createHeart, 300);
+</script>
+<script>
+function showPopup(msg){
+  document.getElementById("popup-text").innerText = msg;
+  document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup(){
+  document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
